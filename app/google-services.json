@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "498042614755",
+    "firebase_url": "https://realtimedatabase-146ea.firebaseio.com",
+    "project_id": "realtimedatabase-146ea",
+    "storage_bucket": "realtimedatabase-146ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498042614755:android:b5397ca382c040f2",
+        "android_client_info": {
+          "package_name": "io.github.iamrajendra.questions"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498042614755-9l5mai0b08soilpugm3d98vuaotej6pa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKIQkPhHfDVn5V5NhD2fz7iUIlcsBYTFU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
