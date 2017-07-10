@@ -41,57 +41,57 @@ private DatabaseReference mDatabaseReference;
         setSupportActionBar(toolbar);
 
 
-        FirebaseRecyclerAdapter<Question,QuestionHolder> adapter =
-                new FirebaseRecyclerAdapter<Question, QuestionHolder>(Question.class,R.layout.row,QuestionHolder.class,mDatabaseReference) {
-                    @Override
-                    protected void populateViewHolder(final QuestionHolder viewHolder, final Question model, final int position) {
-                        viewHolder.mTextView.setText(model.getQuestion());
-                        viewHolder.mCheckBox1.setText(model.getOption1());
-                        viewHolder.mCheckBox2.setText(model.getOption2());
-                        viewHolder.mCheckBox3.setText(model.getOption3());
-                        viewHolder.mCheckBox4.setText(model.getOption4());
-                        viewHolder.mCheckBox1.setChecked(model.isValue1());
-                        viewHolder.mCheckBox2.setChecked(model.isValue2());
-                        viewHolder.mCheckBox3.setChecked(model.isValue3());
-                        viewHolder.mCheckBox4.setChecked(model.isValue4());
-
-
-                        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener(){
-                            @Override
-                            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-
-                                switch (compoundButton.getId())
-                                {
-                                    case R.id.option1:
-
-                                        model.setValue1(b);
-
-                                        break;
-                                    case R.id.option2:
-                                        model.setValue2(b);
-                                        break;
-                                    case R.id.option3:
-                                        model.setValue3(b);
-                                        break;
-                                    case R.id.option4:
-                                        model.setValue4(b);
-                                        break;
-                                }
-                               DatabaseReference reference  = getRef(position);
-                                reference.setValue(model);
-                            }
-                        };
-                        viewHolder.mCheckBox1.setOnCheckedChangeListener(checkedChangeListener);
-                        viewHolder.mCheckBox2.setOnCheckedChangeListener(checkedChangeListener);
-                        viewHolder.mCheckBox3.setOnCheckedChangeListener(checkedChangeListener);
-                        viewHolder.mCheckBox4.setOnCheckedChangeListener(checkedChangeListener);
-
-                    }
-                };
+//        FirebaseRecyclerAdapter<Question,QuestionHolder> adapter =
+//                new FirebaseRecyclerAdapter<Question, QuestionHolder>(Question.class,R.layout.row,QuestionHolder.class,mDatabaseReference) {
+//                    @Override
+//                    protected void populateViewHolder(final QuestionHolder viewHolder, final Question model, final int position) {
+//                        viewHolder.mTextView.setText(model.getQuestion());
+//                        viewHolder.mCheckBox1.setText(model.getOption1());
+//                        viewHolder.mCheckBox2.setText(model.getOption2());
+//                        viewHolder.mCheckBox3.setText(model.getOption3());
+//                        viewHolder.mCheckBox4.setText(model.getOption4());
+//                        viewHolder.mCheckBox1.setChecked(model.isValue1());
+//                        viewHolder.mCheckBox2.setChecked(model.isValue2());
+//                        viewHolder.mCheckBox3.setChecked(model.isValue3());
+//                        viewHolder.mCheckBox4.setChecked(model.isValue4());
+//
+//
+//                        CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener(){
+//                            @Override
+//                            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+//
+//                                switch (compoundButton.getId())
+//                                {
+//                                    case R.id.option1:
+//
+//                                        model.setValue1(b);
+//
+//                                        break;
+//                                    case R.id.option2:
+//                                        model.setValue2(b);
+//                                        break;
+//                                    case R.id.option3:
+//                                        model.setValue3(b);
+//                                        break;
+//                                    case R.id.option4:
+//                                        model.setValue4(b);
+//                                        break;
+//                                }
+//                               DatabaseReference reference  = getRef(position);
+//                                reference.setValue(model);
+//                            }
+//                        };
+//                        viewHolder.mCheckBox1.setOnCheckedChangeListener(checkedChangeListener);
+//                        viewHolder.mCheckBox2.setOnCheckedChangeListener(checkedChangeListener);
+//                        viewHolder.mCheckBox3.setOnCheckedChangeListener(checkedChangeListener);
+//                        viewHolder.mCheckBox4.setOnCheckedChangeListener(checkedChangeListener);
+//
+//                    }
+//                };
 
         RecyclerView   recyclerView  = (RecyclerView)findViewById(R.id.quetion_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(new FirebaseAdapter(this));
 
         
     }
